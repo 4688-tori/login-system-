@@ -1,0 +1,38 @@
+package login.system; 
+
+                
+                
+                
+                
+                
+import java.io.Console;
+
+public class LoginSystem {
+    public static void main(String[] args) {
+        String correctUsername = "admin";
+        String correctPassword = "megan";
+
+        Console console = System.console();
+        if (console == null) {
+            System.out.println("Console not available.");
+            return;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            String username = console.readLine("Enter username: ");
+            char[] passwordChars = console.readPassword("Enter password: ");
+            String password = new String(passwordChars);
+
+            if (username.equals(correctUsername) && password.equals(correctPassword)) {
+                System.out.println("Login successful!");
+                return;
+            } else {
+                System.out.println("Invalid username or password. Attempt " + (i + 1));
+            }
+        }
+
+        System.out.println("Too many failed attempts. Exiting.");
+    }
+}
+
+    
